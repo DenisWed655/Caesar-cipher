@@ -15,8 +15,6 @@ def encrypt():
             output_string.append(' ')
         elif letter.isalpha():
             output_string.append(alphabet[alphabet.index(letter)+key])
-        elif letter.isdigit():
-            continue
         else:
             output_string.append(letter)
 
@@ -37,8 +35,6 @@ def decipher():
             output_string.append(' ')
         elif letter.isalpha():
             output_string.append(alphabet[alphabet.index(letter) - key])
-        elif letter.isdigit():
-            continue
         else:
             output_string.append(letter)
 
