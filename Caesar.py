@@ -7,36 +7,21 @@ frame_decipher = tk.Frame()
 alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'*3
 
 def encrypt():
-
     key = int(key1.get())
     input_string = input_text1.get(1.0, 'end').lower()
-    output_string = list()
 
-    for letter in input_string:
-        if letter.isspace():
-            output_string.append(' ')
-        elif letter.isalpha():
-            output_string.append(alphabet[alphabet.index(letter)+key])
-        else:
-            output_string.append(letter)
+    trans = input_string.maketrans(alphabet[0:33], alphabet[key:key+33])
+    output_string = input_string.translate(trans)
 
     output_text1.delete(1.0, 'end')
     output_text1.insert(1.0, ''.join(output_string))
 
-
 def decipher():
-
     key = int(key2.get())
     input_string = input_text2.get(1.0, 'end').lower()
-    output_string = list()
 
-    for letter in input_string:
-        if letter.isspace():
-            output_string.append(' ')
-        elif letter.isalpha():
-            output_string.append(alphabet[alphabet.index(letter) - key])
-        else:
-            output_string.append(letter)
+    trans = input_string.maketrans(alphabet[0:33], alphabet[key:key+33])
+    output_string = input_string.translate(trans)
 
     output_text2.delete(1.0, 'end')
     output_text2.insert(1.0, ''.join(output_string))
